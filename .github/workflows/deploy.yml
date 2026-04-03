@@ -42,7 +42,7 @@ jobs:
                   key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
             - run: npm ci
             - run: npm run gen
-            - run: npm run build
+            - run: VITE_API_URL=https://links-rss-api.314926.xyz npm run build
             - name: Deploy to Cloudflare Pages
               uses: cloudflare/pages-action@v1
               with:
