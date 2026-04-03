@@ -1,10 +1,10 @@
 # TODO: 需修改的配置，用于上传到 CloudFlare
 name = "friend-link-house"
-type = "webpack"
 account_id = "1be59dcab5a04acec1bbbb9e4deee8ea"
 workers_dev = true
+compatibility_date = "2026-04-03"
 # route = "blogroll.icl.moe/*"
-zone_id = "691f6aa5d9b5c986c09a92cc27394d51"
+# zone_id = "691f6aa5d9b5c986c09a92cc27394d51"
 
 [site]
 bucket = "./web/dist"
