@@ -1,7 +1,73 @@
 <script setup>
+import { ref, onMounted } from 'vue';
 import BlogInfoCard from "./components/BlogInfoCard.vue";
-import dataJson from "./assets/data.json";
-import opmlJson from "./assets/opml.json";
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || '';
+
+const posts = ref([]);
+const blogs = ref([]);
+const loading = ref(true);
+const error = ref(null);
+
+// 获取文章数据
+async function fetchPosts() {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/posts`);
+    if (!response.ok) throw new Error('Failed to fetch posts');
+    const data = await response.json();
+    
+    // 转换数据格式以兼容原有显示逻辑
+    posts.value = data.map(item => {
+      const pubDate = new Date(item.pub_date);
+      return {
+        ...item,
+        name: item.blog_name,
+        htmlUrl: item.html_url,
+        pubDate: pubDate,
+        pubDateYY: pubDate.getFullYear().toString(),
+        pubDateMM: String(pubDate.getMonth() + 1).padStart(2, '0'),
+        pubDateMMDD: String(pubDate.getMonth() + 1).padStart(2, '0') + '-' + String(pubDate.getDate()).padStart(2, '0')
+      };
+    });
+  } catch (err) {
+    console.error('Error fetching posts:', err);
+    error.value = err.message;
+  }
+}
+
+// 获取博客列表
+async function fetchBlogs() {
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/blogs`);
+    if (!response.ok) throw new Error('Failed to fetch blogs');
+    const data = await response.json();
+    
+    // 转换数据格式以兼容 BlogInfoCard 组件
+    blogs.value = data.map(item => ({
+      title: item.title,
+      htmlUrl: item.html_url,
+      xmlUrl: item.xml_url,
+      status: item.status,
+      category: item.category
+    }));
+  } catch (err) {
+    console.error('Error fetching blogs:', err);
+    error.value = err.message;
+  }
+}
+
+onMounted(async () => {
+  await Promise.all([fetchPosts(), fetchBlogs()]);
+  loading.value = false;
+  
+  // 图片懒加载
+  var imgs = document.getElementsByTagName("img");
+  for (var i = 0; i < imgs.length; i++) {
+    if (imgs[i].dataset.src) {
+      imgs[i].src = imgs[i].dataset.src;
+    }
+  }
+});
 </script>
 
 <template>
@@ -23,16 +89,23 @@ import opmlJson from "./assets/opml.json";
     <div id="banner">{{ info }}</div>
   </header>
 
-  <div id="container">
+  <div v-if="loading" class="loading">
+    <p>加载中...</p>
+  </div>
+
+  <div v-else-if="error" class="error">
+    <p>加载失败: {{ error }}</p>
+  </div>
+
+  <div v-else id="container">
     <main>
       <div id="main">
-        <section class="timeline" id="archives">
+        <section class="timeline" id="archives" v-if="posts.length > 0">
           <time class="timeline-item timeline-item--year"
-            >{{ dataJson[0].pubDateYY }}年{{ dataJson[0].pubDateMM }}月</time
+            >{{ posts[0].pubDateYY }}年{{ posts[0].pubDateMM }}月</time
           >
-          <div v-for="(item, index) in dataJson">
+          <div v-for="(item, index) in posts" :key="index">
             <article class="timeline-item">
-              <!-- <SummaryCard :props="item" /> -->
               <time class="timeline-item__time"> {{ item.pubDateMMDD }}</time>
               <h2 class="timeline-item__title">
                 <a
@@ -49,14 +122,17 @@ import opmlJson from "./assets/opml.json";
             <time
               class="timeline-item timeline-item--year"
               v-if="
-                index != dataJson.length - 1 &&
-                item.pubDateMM != dataJson[index + 1].pubDateMM
+                index != posts.length - 1 &&
+                item.pubDateMM != posts[index + 1].pubDateMM
               "
-              >{{ dataJson[index + 1].pubDateYY }}年{{
-                dataJson[index + 1].pubDateMM
+              >{{ posts[index + 1].pubDateYY }}年{{
+                posts[index + 1].pubDateMM
               }}月</time
             >
           </div>
+        </section>
+        <section v-else class="timeline">
+          <p>暂无文章</p>
         </section>
       </div>
     </main>
@@ -65,32 +141,28 @@ import opmlJson from "./assets/opml.json";
       <div id="sidebar">
         <div id="sidebar-content">
           <div class="list">{{ list }}</div>
-          <template v-for="(item, index) in opmlJson">
+          <template v-for="(item, index) in blogs" :key="index">
             <BlogInfoCard
               :props="item"
-              :key="index"
-              v-if="item['status'] == 'active' && item['xmlUrl'] != ''"
+              v-if="item.status == 'active' && item.xmlUrl != ''"
             />
           </template>
-          <template v-for="(item, index) in opmlJson">
+          <template v-for="(item, index) in blogs" :key="'no-rss-' + index">
             <BlogInfoCard
               :props="item"
-              :key="index"
-              v-if="item['status'] == 'active' && item['xmlUrl'] == ''"
+              v-if="item.status == 'active' && item.xmlUrl == ''"
             />
           </template>
-          <template v-for="(item, index) in opmlJson">
+          <template v-for="(item, index) in blogs" :key="'lost-rss-' + index">
             <BlogInfoCard
               :props="item"
-              :key="index"
-              v-if="item['status'] == 'lost' && item['xmlUrl'] != ''"
+              v-if="item.status == 'lost' && item.xmlUrl != ''"
             />
           </template>
-          <template v-for="(item, index) in opmlJson">
+          <template v-for="(item, index) in blogs" :key="'lost-no-rss-' + index">
             <BlogInfoCard
               :props="item"
-              :key="index"
-              v-if="item['status'] == 'lost' && item['xmlUrl'] == ''"
+              v-if="item.status == 'lost' && item.xmlUrl == ''"
             />
           </template>
         </div>
@@ -109,19 +181,22 @@ export default {
       list: "友链列表",
     };
   },
-  mounted() {
-    var imgs = document.getElementsByTagName("img");
-    for (var i = 0; i < imgs.length; i++) {
-      if (imgs[i].dataset.src) {
-        imgs[i].src = imgs[i].dataset.src;
-      }
-    }
-  },
 };
 </script>
 
 <style>
 @import "./assets/base.css";
+
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+.error {
+  color: #e74c3c;
+}
+
 .timeline {
   position: relative;
   margin-left: 1rem;
@@ -209,13 +284,6 @@ export default {
 
 .summary-name {
   display: inline;
-  /* font-size: medium;
-  border-radius: 5px;
-  color: #fff;
-  padding: 3px;
-  background-color: #bbb; */
-  /* margin-right: 5px;
-  margin-bottom: 5px; */
   color: grey;
   margin-right: 1.5rem;
   float: right;

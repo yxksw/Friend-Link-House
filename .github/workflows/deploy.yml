@@ -6,40 +6,86 @@ on:
     schedule:
         - cron: "0 4,16 * * *"
 jobs:
-    build:
+    deploy-worker:
         runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version:
-                    - 22.x
+        name: Deploy Worker
+        if: github.event_name == 'push'
         steps:
             - name: Checkout
               uses: actions/checkout@v4
               with:
                   persist-credentials: false
-            - name: Use Node.js ${{ matrix.node-version }}
+            - name: Use Node.js 22.x
               uses: actions/setup-node@v4
               with:
-                  node-version: ${{ matrix.node-version }}
+                  node-version: 22.x
+            - name: Deploy Worker to Cloudflare
+              run: npx wrangler deploy
+              env:
+                  CLOUDFLARE_API_TOKEN: ${{ secrets.CF_WORKERS_TOKEN }}
+
+    deploy-pages:
+        runs-on: ubuntu-latest
+        name: Deploy Pages
+        if: github.event_name == 'push'
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Use Node.js 22.x
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22.x
             - name: Cache node_modules
               uses: actions/cache@v4
-              env:
-                  cache-name: blogroll-node-modules
               with:
                   path: node_modules
-                  key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('package-lock.json') }}
-            - name: Cache workers-site/node_modules
-              uses: actions/cache@v4
-              env:
-                  cache-name: workers-site-node-modules
-              with:
-                  path: workers-site/node_modules
-                  key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('workers-site/package-lock.json') }}
-            - run: npm i
-            - run: cd workers-site && npm i
+                  key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+            - run: npm ci
             - run: npm run gen
             - run: npm run build
-            - name: Deploy to Cloudflare Workers
-              run: npx wrangler deploy
+            - name: Deploy to Cloudflare Pages
+              uses: cloudflare/pages-action@v1
+              with:
+                  apiToken: ${{ secrets.CF_WORKERS_TOKEN }}
+                  accountId: ${{ secrets.CF_ACCOUNT_ID }}
+                  projectName: friend-link-house
+                  directory: web/dist
+                  gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+
+    sync-data:
+        runs-on: ubuntu-latest
+        name: Sync RSS Data to D1
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Use Node.js 22.x
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22.x
+            - name: Cache node_modules
+              uses: actions/cache@v4
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json') }}
+            - name: Install dependencies
+              run: npm ci
+            - name: Generate SQL from RSS feeds
+              run: node init-d1.js
+            - name: Sync data to D1
+              run: |
+                  # 安装 Wrangler
+                  npm install -g wrangler
+
+                  # 同步博客列表
+                  if [ -f "d1-init.sql" ]; then
+                    echo "Syncing blogs..."
+                    wrangler d1 execute friend-link-house-db --file=./d1-init.sql --yes
+                  fi
+
+                  # 同步文章数据
+                  if [ -f "d1-sync-posts.sql" ]; then
+                    echo "Syncing posts..."
+                    wrangler d1 execute friend-link-house-db --file=./d1-sync-posts.sql --yes
+                  fi
               env:
                   CLOUDFLARE_API_TOKEN: ${{ secrets.CF_WORKERS_TOKEN }}
