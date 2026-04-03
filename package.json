@@ -8,6 +8,7 @@
     "preview": "cd web && vite preview --port 5050"
   },
   "dependencies": {
+    "@cloudflare/kv-asset-handler": "^0.4.2",
     "https-proxy-agent": "^5.0.1",
     "node-fetch": "^2.6.7",
     "rss": "^1.2.2",
