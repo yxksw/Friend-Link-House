@@ -101,18 +101,19 @@ async function generateSyncScript() {
       const feed = await parser.parseURL(blog.xml_url);
       console.log(`Fetched: ${blog.title} - ${feed.items.length} items`);
 
-      feed.items
-        .filter((item) => item.title)
-        .forEach((item) => {
-          const pubDate = new Date(item.pubDate ?? item.published);
-          posts.push({
-            blog_title: blog.title,
-            title: item.title,
-            link: item.link,
-            summary: item.summary || item.content || "",
-            pub_date: pubDate.toISOString(),
-          });
+      // 每个博客只取最新 5 篇文章
+      const latestPosts = feed.items.filter((item) => item.title).slice(0, 5); // 限制每个博客 5 篇
+
+      latestPosts.forEach((item) => {
+        const pubDate = new Date(item.pubDate ?? item.published);
+        posts.push({
+          blog_title: blog.title,
+          title: item.title,
+          link: item.link,
+          summary: item.summary || item.content || "",
+          pub_date: pubDate.toISOString(),
         });
+      });
     } catch (err) {
       console.error(`Error fetching ${blog.title}:`, err.message);
     }
@@ -125,16 +126,17 @@ async function generateSyncScript() {
   );
   uniquePosts.sort((a, b) => new Date(b.pub_date) - new Date(a.pub_date));
 
-  console.log(`\nTotal posts: ${uniquePosts.length}`);
+  console.log(`\nTotal posts fetched: ${posts.length}`);
+  console.log(`Total unique posts: ${uniquePosts.length}`);
+  console.log(
+    `Will sync ${uniquePosts.length} posts to D1 (${blogs.length} blogs × ~5 posts each)`,
+  );
 
   // 生成插入 SQL
-  let sql = `-- Posts sync script\n-- Generated on ${new Date().toISOString()}\n-- Total posts: ${uniquePosts.length}\n\n`;
+  let sql = `-- Posts sync script\n-- Generated on ${new Date().toISOString()}\n-- Total blogs: ${blogs.length}\n-- Posts per blog: 5\n-- Total posts to sync: ${uniquePosts.length}\n\n`;
 
-  // 注意：这里需要使用子查询来关联 blog_id
-  sql += `-- To insert posts, use the following approach in your Worker or script:\n`;
-  sql += `-- First get the blog_id, then insert the post\n\n`;
-
-  uniquePosts.slice(0, 120).forEach((post, index) => {
+  // 同步所有文章（每个博客最新 5 篇）
+  uniquePosts.forEach((post, index) => {
     sql += `-- Post ${index + 1}: ${post.blog_title} - ${post.title}\n`;
     sql += `INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '${escapeSQL(post.blog_title)}'),
@@ -151,24 +153,38 @@ async function generateSyncScript() {
 // 主函数
 async function main() {
   console.log("=== D1 Database Initialization ===\n");
+  console.log("Step 1: Generating init SQL...");
 
   // 生成初始化 SQL
   const initSQL = generateInitSQL();
   fs.writeFileSync("./d1-init.sql", initSQL);
   console.log("✅ Generated: d1-init.sql (schema and blogs)");
+  console.log("Step 2: Fetching RSS feeds...");
 
   // 生成数据同步 SQL
   console.log("\nFetching RSS feeds...");
   const syncSQL = await generateSyncScript();
   fs.writeFileSync("./d1-sync-posts.sql", syncSQL);
   console.log("✅ Generated: d1-sync-posts.sql (posts data)");
+  console.log("Step 3: Complete!");
 
   console.log("\n=== Done ===");
-  console.log("\nNext steps:");
-  console.log("1. Create D1 database in Cloudflare dashboard");
-  console.log("2. Run d1-init.sql to create schema and insert blogs");
-  console.log("3. Run d1-sync-posts.sql to insert posts");
-  console.log("4. Update wrangler.toml with your database_id");
+
+  // 在 GitHub Actions 中输出特殊标记，帮助检测完成
+  console.log("::group::Initialization Complete");
+  console.log("SQL files generated successfully!");
+  console.log("- d1-init.sql: Schema and blogs");
+  console.log("- d1-sync-posts.sql: Posts data");
+  console.log("::endgroup::");
+
+  // 强制刷新 stdout，确保 GitHub Actions 检测到完成
+  console.log("\n[COMPLETE] Script execution finished successfully");
+
+  // 确保在 GitHub Actions 中正确退出
+  process.exit(0);
 }
 
-main().catch(console.error);
+main().catch((err) => {
+  console.error("❌ Error:", err.message);
+  process.exit(1);
+});

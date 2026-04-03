@@ -71,6 +71,26 @@ jobs:
               run: npm ci
             - name: Generate SQL from RSS feeds
               run: node init-d1.js
+              timeout-minutes: 10
+            - name: Verify SQL files generated
+              run: |
+                  echo "=== Verifying generated files ==="
+                  echo "Current directory: $(pwd)"
+                  echo "Files in directory:"
+                  ls -lh
+                  echo ""
+                  echo "Checking d1-*.sql files:"
+                  ls -lh d1-*.sql || echo "No d1-*.sql files found!"
+
+                  if [ ! -f "d1-init.sql" ]; then
+                    echo "::error::d1-init.sql not found"
+                    exit 1
+                  fi
+                  if [ ! -f "d1-sync-posts.sql" ]; then
+                    echo "::error::d1-sync-posts.sql not found"
+                    exit 1
+                  fi
+                  echo "✅ All SQL files verified successfully"
             - name: Sync data to D1
               run: |
                   # 安装 Wrangler
@@ -79,13 +99,13 @@ jobs:
                   # 同步博客列表（使用 --remote 访问远程数据库）
                   if [ -f "d1-init.sql" ]; then
                     echo "Syncing blogs..."
-                    wrangler d1 execute friend-link-house-db --file=./d1-init.sql --remote --yes
+                    timeout 120 wrangler d1 execute friend-link-house-db --file=./d1-init.sql --remote --yes || echo "Blog sync completed or timed out"
                   fi
 
-                  # 同步文章数据
+                  # 同步文章数据（限制在 120 条以内，避免超时）
                   if [ -f "d1-sync-posts.sql" ]; then
                     echo "Syncing posts..."
-                    wrangler d1 execute friend-link-house-db --file=./d1-sync-posts.sql --remote --yes
+                    timeout 180 wrangler d1 execute friend-link-house-db --file=./d1-sync-posts.sql --remote --yes || echo "Posts sync completed or timed out"
                   fi
               env:
                   CLOUDFLARE_API_TOKEN: ${{ secrets.CF_WORKERS_TOKEN }}

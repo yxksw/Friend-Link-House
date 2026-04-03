@@ -1,5 +1,5 @@
 -- D1 Database Initialization Script
--- Generated on 2026-04-03T16:17:25.891Z
+-- Generated on 2026-04-03T16:40:35.405Z
 
 -- Create tables
 CREATE TABLE IF NOT EXISTS blogs (
