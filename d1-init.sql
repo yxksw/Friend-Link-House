@@ -1,5 +1,5 @@
 -- D1 Database Initialization Script
--- Generated on 2026-04-03T15:29:37.229Z
+-- Generated on 2026-04-03T16:17:25.891Z
 
 -- Create tables
 CREATE TABLE IF NOT EXISTS blogs (
@@ -32,7 +32,7 @@ CREATE INDEX IF NOT EXISTS idx_blogs_category ON blogs(category);
 CREATE INDEX IF NOT EXISTS idx_blogs_status ON blogs(status);
 
 -- Insert blogs
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   1,
   'idealclover',
   'https://idealclover.top',
@@ -42,7 +42,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   2,
   'NJU-LUG',
   'https://blogroll.njulug.org',
@@ -52,7 +52,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   3,
   'gq''s Blog',
   'https://blog.izgq.net',
@@ -62,7 +62,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   4,
   'bus1996',
   'https://bus1996.me',
@@ -72,7 +72,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   5,
   'HiKi',
   'https://www.aneureka.cn',
@@ -82,7 +82,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   6,
   'lizhihao6',
   'https://lizhihao6.online',
@@ -92,7 +92,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   7,
   'Jennifer''s Blog',
   'https://jyzhangchn.github.io',
@@ -102,7 +102,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   8,
   'DIYGod',
   'https://diygod.me',
@@ -112,7 +112,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   9,
   '咸鱼不咸',
   'https://lcblog.cn',
@@ -122,7 +122,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   10,
   'XZYMOE''S BLOG',
   'https://www.xzymoe.com',
@@ -132,7 +132,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   11,
   'Tianyun Zhang',
   'https://doowzs.com',
@@ -142,7 +142,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   12,
   '鹏鹏',
   'https://blog.chper.cn',
@@ -152,7 +152,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   13,
   '毛若昕',
   'https://www.maorx.cn',
@@ -162,7 +162,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   14,
   '冰凌胧月的小窝',
   'https://imiku.me',
@@ -172,7 +172,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   15,
   'Zero',
   'https://mikuac.com',
@@ -182,7 +182,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   16,
   'VicBlog',
   'https://ddadaal.me',
@@ -192,7 +192,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   17,
   'YSZ 的个人主页',
   'https://yangshangzhen.com',
@@ -202,7 +202,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   18,
   '热铁盒',
   'https://rthsoftware.cn',
@@ -212,7 +212,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   19,
   'iznauy',
   'https://iznauy.github.io',
@@ -222,7 +222,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   20,
   'Literature',
   'https://www.literature.hk',
@@ -232,7 +232,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   21,
   'JBESU',
   'https://jbesu.com',
@@ -242,7 +242,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   22,
   '青空之蓝',
   'https://www.ixk.me',
@@ -252,7 +252,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   23,
   '樱花庄的白猫',
   'https://2heng.xin',
@@ -262,7 +262,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   24,
   '水风车',
   'https://blog.shuifengche.top',
@@ -272,7 +272,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   25,
   '辣椒の酱',
   'https://removeif.github.io',
@@ -282,7 +282,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   26,
   'BoBo',
   'https://hewanyue.com/',
@@ -292,7 +292,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   27,
   'Domon',
   'https://www.domon.cn',
@@ -302,7 +302,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   28,
   'BOHC!',
   'https://hewanyue.com',
@@ -312,7 +312,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   29,
   'SangSir',
   'https://sangsir.com',
@@ -322,7 +322,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   30,
   '恶魔菌の记事簿',
   'https://meow3.family.blog',
@@ -332,7 +332,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   31,
   '蓝小柠的博客',
   'https://bleshi.com',
@@ -342,7 +342,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   32,
   '宇宙よりも遠い場所',
   'https://kirainmoe.com',
@@ -352,7 +352,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   33,
   '小太の游乐园',
   'https://baka.fun',
@@ -362,7 +362,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   34,
   'NoneData',
   'https://www.nonedata.com',
@@ -372,7 +372,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   35,
   'dna049',
   'https://dna049.com',
@@ -382,7 +382,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   36,
   'Mengzelev''s Blog',
   'https://mengzelev.github.io',
@@ -392,7 +392,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   37,
   'beyondstars',
   'https://exploro.one',
@@ -402,7 +402,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'supporter',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   38,
   'Sukka',
   'https://blog.skk.moe',
@@ -412,7 +412,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   39,
   'fengkx',
   'https://www.fengkx.top',
@@ -422,7 +422,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   40,
   'JosePhilo',
   'https://josephilo.com',
@@ -432,7 +432,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   41,
   '蝉时雨',
   'https://chanshiyu.com',
@@ -442,7 +442,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'lost'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   42,
   'ChrAlpha 的幻想乡',
   'https://ichr.me',
@@ -452,7 +452,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   43,
   'SpencerWoo',
   'https://spencerwoo.com',
@@ -462,7 +462,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'supporter',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   44,
   'LadderOperator',
   'https://ladderoperator.top',
@@ -472,7 +472,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   45,
   '木子的博客',
   'https://blog.k8s.li',
@@ -482,7 +482,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   46,
   'c0sMx',
   'https://www.c0smx.com',
@@ -492,7 +492,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   47,
   '云游君的小站',
   'https://www.yunyoujun.cn',
@@ -502,7 +502,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   48,
   '猫鱼的小站',
   'https://2cat.net',
@@ -512,7 +512,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   49,
   'MiaoTony''s 小窝',
   'https://miaotony.xyz',
@@ -522,7 +522,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   50,
   'Timegg',
   'https://timegg.top',
@@ -532,7 +532,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'lost'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   51,
   'Aengus Blog',
   'https://www.aengus.top',
@@ -542,7 +542,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   52,
   'ALID',
   'https://calmtime.github.io',
@@ -552,7 +552,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   53,
   'klaus & laura',
   'https://klauslaura.cn',
@@ -562,7 +562,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   54,
   'Kant',
   'https://deathfugue.com/',
@@ -572,7 +572,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   55,
   'Orangex4',
   'https://orangex4.cool',
@@ -582,7 +582,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'lost'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   56,
   'GeRongcun',
   'https://www.gerongcun.xyz/blog',
@@ -592,7 +592,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   57,
   '王荣胜',
   'https://sqdxwz.com',
@@ -602,7 +602,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   58,
   '小丁的个人博客',
   'https://tding.top',
@@ -612,7 +612,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'lost'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   59,
   '风景工作室',
   'https://aspire.studio',
@@ -622,7 +622,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'lost'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   60,
   'Manami',
   'https://www.manami.top',
@@ -632,7 +632,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   61,
   'Oasis''s Blog',
   'https://blog.imoasis.cn',
@@ -642,7 +642,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   62,
   '不鉴的安全屋',
   'https://ryushane.com',
@@ -652,7 +652,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   63,
   '吴志成的博客',
   'https://hitigerzzz.github.io',
@@ -662,7 +662,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   64,
   '南雍随笔',
   'https://ydjsir.com.cn',
@@ -672,7 +672,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   65,
   'Cyris',
   'https://cyris.moe',
@@ -682,7 +682,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   66,
   'Dejavu''s Blog',
   'https://blog.dejavu.moe',
@@ -692,7 +692,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   67,
   'remiliacn',
   'https://www.remiliacn.com',
@@ -702,7 +702,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   68,
   '青鱼博客',
   'https://qingyu.me',
@@ -712,7 +712,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   69,
   '太隐',
   'https://www.wangyurui.top',
@@ -722,7 +722,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   70,
   '送报少年',
   'https://okarin.cn',
@@ -732,7 +732,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   71,
   'itsNekoDeng',
   'https://dyfa.top',
@@ -742,7 +742,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   72,
   'LarryZhao',
   'https://larryzhao.com',
@@ -752,7 +752,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   73,
   'Pemp''s Blog',
   'https://pemp.top',
@@ -762,7 +762,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   74,
   'SkyWT',
   'https://skywt.cn',
@@ -772,7 +772,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   75,
   'Anomie ZJU',
   'https://dong2000.xyz',
@@ -782,7 +782,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   76,
   'Cysime Moflu',
   'https://blog.cysi.me',
@@ -792,7 +792,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   77,
   'RK blog',
   'https://blog.ohtoai.fun/',
@@ -802,7 +802,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   78,
   'Good Morning',
   'https://y-ichen.github.io',
@@ -812,7 +812,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   79,
   'Chlorine',
   'https://www.yoghurtlee.com',
@@ -822,7 +822,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   80,
   '烫烫烫的记事本',
   'https://leostudiooo.github.io/',
@@ -832,7 +832,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   81,
   '山茶花舍',
   'https://irithys.com',
@@ -842,7 +842,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   82,
   '张洪 Heo',
   'https://blog.zhheo.com',
@@ -852,7 +852,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   83,
   'f2h2h1''s blog',
   'https://f2h2h1.github.io',
@@ -862,7 +862,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   84,
   '精灵王',
   'https://jingling.im',
@@ -872,7 +872,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'net',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   85,
   'Guava’s Blog',
   'https://www.humbleguava.top',
@@ -882,7 +882,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   86,
   'LoveApple的主页',
   'https://loveapple.icu',
@@ -892,7 +892,7 @@ INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, catego
   'friend',
   'active'
 );
-INSERT INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
+INSERT OR REPLACE INTO blogs (id, title, html_url, description, avatar_url, xml_url, category, status) VALUES (
   87,
   '龙场茶室',
   'https://blog.peterchen97.cn',

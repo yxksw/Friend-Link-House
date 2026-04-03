@@ -1,12 +1,12 @@
 -- Posts sync script
--- Generated on 2026-04-03T15:31:12.775Z
--- Total posts: 1182
+-- Generated on 2026-04-03T16:18:07.228Z
+-- Total posts: 1245
 
 -- To insert posts, use the following approach in your Worker or script:
 -- First get the blog_id, then insert the post
 
 -- Post 1: 太隐 - 人治的尽头
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '人治的尽头',
   'https://wangyurui.com/posts/ren-zhi-de-jin-tou-d04f7e1d',
@@ -14,7 +14,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-04-02T14:00:47.000Z'
 );
 -- Post 2: 张洪 Heo - OpenClaw喧嚣过后，我最终选择了QClaw
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   'OpenClaw喧嚣过后，我最终选择了QClaw',
   'https://blog.zhheo.com/p/bublpdof.html',
@@ -22,7 +22,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-04-02T07:13:58.000Z'
 );
 -- Post 3: NoneData - 几何布朗运动下股票价格涨超/跌超50%概率计算步骤
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'NoneData'),
   '几何布朗运动下股票价格涨超/跌超50%概率计算步骤',
   'https://www.nonedata.com/posts/GBM-stock.html',
@@ -30,7 +30,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-31T00:00:00.000Z'
 );
 -- Post 4: 太隐 - 隐说 NO.17  曹雪芹之后
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '隐说 NO.17  曹雪芹之后',
   'https://wangyurui.com/posts/yin-shuo-no-17-wei-shi-yao-xu-xie-ming-zhu-zhe-y-9cde2cd0',
@@ -38,7 +38,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-29T12:35:38.000Z'
 );
 -- Post 5: 张洪 Heo - 洪绘存图发布：保存浏览器图片为指定格式、提取网页所有图片、屏幕截图插件
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '洪绘存图发布：保存浏览器图片为指定格式、提取网页所有图片、屏幕截图插件',
   'https://blog.zhheo.com/p/drqm39ob.html',
@@ -46,7 +46,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-29T06:41:52.000Z'
 );
 -- Post 6: LoveApple的主页 - hexo脚本：部署后自动刷新Cloudflare缓存
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   'hexo脚本：部署后自动刷新Cloudflare缓存',
   'https://loveapple.icu/cloudflare-purge-cache/',
@@ -54,7 +54,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-27T09:06:24.000Z'
 );
 -- Post 7: LoveApple的主页 - 正点原子串口例程中开发板无法收信问题
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   '正点原子串口例程中开发板无法收信问题',
   'https://loveapple.icu/STM32-USART-Alientek/',
@@ -62,7 +62,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-27T08:35:38.000Z'
 );
 -- Post 8: LoveApple的主页 - 鱼论：穿越知识的坠落与诅咒，寻找锚点与未来
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   '鱼论：穿越知识的坠落与诅咒，寻找锚点与未来',
   'https://loveapple.icu/view-2/',
@@ -70,7 +70,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-26T07:28:47.000Z'
 );
 -- Post 9: 太隐 - 心理学治不了时代的病
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '心理学治不了时代的病',
   'https://wangyurui.com/posts/xin-li-xue-zhi-bu-liao-shi-dai-de-bing-3c3e340a',
@@ -78,7 +78,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-25T14:16:02.000Z'
 );
 -- Post 10: 张洪 Heo - 洪绘星空发布：一个值得逛的博客友链朋友圈
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '洪绘星空发布：一个值得逛的博客友链朋友圈',
   'https://blog.zhheo.com/p/iu5f3hvj.html',
@@ -86,7 +86,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-20T02:12:20.000Z'
 );
 -- Post 11: 太隐 - 隐说 NO.16  “默认为假”的时代
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '隐说 NO.16  “默认为假”的时代',
   'https://wangyurui.com/posts/yin-shuo-no-16-mo-ren-wei-jia-de-shi-dai-faaa0863',
@@ -94,7 +94,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-18T14:12:16.000Z'
 );
 -- Post 12: 张洪 Heo - 腾讯QClaw上手：打通微信很方便，但是性能上略有不足
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '腾讯QClaw上手：打通微信很方便，但是性能上略有不足',
   'https://blog.zhheo.com/p/bn8aror2.html',
@@ -102,7 +102,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-17T07:44:54.000Z'
 );
 -- Post 13: Dejavu's Blog - BuyVM VPS 块存储挂载教程
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   'BuyVM VPS 块存储挂载教程',
   'https://blog.dejavu.moe/posts/buyvm-mount-block-storage-slab/',
@@ -110,7 +110,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-17T07:30:53.000Z'
 );
 -- Post 14: Dejavu's Blog - Alpine Linux 服务器配置指南
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   'Alpine Linux 服务器配置指南',
   'https://blog.dejavu.moe/posts/alpine-linux-server-configuration-guide/',
@@ -118,7 +118,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-17T03:40:55.000Z'
 );
 -- Post 15: 张洪 Heo - 阿里 JVS Claw 上手：都这么多天了，养虾的门槛被打下来了吗？
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '阿里 JVS Claw 上手：都这么多天了，养虾的门槛被打下来了吗？',
   'https://blog.zhheo.com/p/ey4573gn.html',
@@ -126,7 +126,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-16T07:36:30.000Z'
 );
 -- Post 16: 张洪 Heo - 洪绘图标助手更新：获取应用图标、将你的图标对mac进行适配
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '洪绘图标助手更新：获取应用图标、将你的图标对mac进行适配',
   'https://blog.zhheo.com/p/z9rm5p4p.html',
@@ -134,7 +134,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-16T02:17:56.000Z'
 );
 -- Post 17: Dejavu's Blog - Alpine Linux 安装 Cloudflared
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   'Alpine Linux 安装 Cloudflared',
   'https://blog.dejavu.moe/posts/install-cloudflared-on-alpine-linux/',
@@ -142,7 +142,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-15T15:55:06.000Z'
 );
 -- Post 18: Anomie ZJU - 人生进度条更新：写在26年初春
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Anomie ZJU'),
   '人生进度条更新：写在26年初春',
   'https://dong2000.xyz/post/skipping-ahead/',
@@ -153,7 +153,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-15T15:07:10.000Z'
 );
 -- Post 19: 太隐 - 盛世的木偶
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '盛世的木偶',
   'https://wangyurui.com/posts/sheng-shi-de-mu-ou-417a1f8c',
@@ -161,7 +161,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-15T14:00:02.000Z'
 );
 -- Post 20: VicBlog - fork subgen实现纯本地AI视频字幕生成和翻译
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'VicBlog'),
   'fork subgen实现纯本地AI视频字幕生成和翻译',
   'https://ddadaal.me/articles/subgen-translate/cn',
@@ -176,7 +176,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-14T03:53:00.000Z'
 );
 -- Post 21: Dejavu's Blog - Docker 多容器共享中心数据库
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   'Docker 多容器共享中心数据库',
   'https://blog.dejavu.moe/posts/multiple-docker-containers-sharing-postgresql/',
@@ -184,7 +184,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-13T06:23:55.000Z'
 );
 -- Post 22: Kant - 《中美关系的“新正常化”：在毁灭边缘退后一步的最后机会》 王辑思
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Kant'),
   '《中美关系的“新正常化”：在毁灭边缘退后一步的最后机会》 王辑思',
   'https://deathfugue.com/archives/94.html',
@@ -192,7 +192,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-12T13:38:07.000Z'
 );
 -- Post 23: Kant - 从萧红与女性主义 谈 丁玲的 《三八节有感》 
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Kant'),
   '从萧红与女性主义 谈 丁玲的 《三八节有感》 ',
   'https://deathfugue.com/archives/93.html',
@@ -200,7 +200,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-12T07:38:40.000Z'
 );
 -- Post 24: 太隐 - 隐说 NO.15  官僚集团的运转逻辑
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '隐说 NO.15  官僚集团的运转逻辑',
   'https://wangyurui.com/posts/yin-shuo-no-15-guan-liao-ji-tuan-de-yun-zhuan-lu-dff28a7c',
@@ -208,7 +208,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-11T14:14:19.000Z'
 );
 -- Post 25: 张洪 Heo - 超级制图上手：图片上的文字如何用AI修改？无痕改字一键出图
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '超级制图上手：图片上的文字如何用AI修改？无痕改字一键出图',
   'https://blog.zhheo.com/p/yynnxi2c.html',
@@ -216,7 +216,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-11T02:46:25.000Z'
 );
 -- Post 26: 张洪 Heo - 用虚拟机养龙虾，在Mac上通过Lume使用虚拟机的隔离环境安装OpenClaw
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '用虚拟机养龙虾，在Mac上通过Lume使用虚拟机的隔离环境安装OpenClaw',
   'https://blog.zhheo.com/p/h6k74j9o.html',
@@ -224,7 +224,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-10T03:30:41.000Z'
 );
 -- Post 27: 烫烫烫的记事本 - 当擦鞋童开始养龙虾——技术泡沫的百年收割术
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '烫烫烫的记事本'),
   '当擦鞋童开始养龙虾——技术泡沫的百年收割术',
   'https://烫烫烫的锟斤拷.top/posts/when-a-shoeshine-boy-starts-to-cultivate-lobsters',
@@ -235,7 +235,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-09T10:42:14.000Z'
 );
 -- Post 28: Dejavu's Blog - 安装 Komari 服务器监控工具
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   '安装 Komari 服务器监控工具',
   'https://blog.dejavu.moe/posts/install-komari-monitor/',
@@ -243,7 +243,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-07T12:53:39.000Z'
 );
 -- Post 29: 太隐 - 阿Q的死局
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '阿Q的死局',
   'https://wangyurui.com/posts/a-qde-si-ju-cba740f9',
@@ -251,7 +251,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-07T11:28:28.000Z'
 );
 -- Post 30: VicBlog - 把nanobot关进Docker后，如何同时保留浏览器可视化与自动化
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'VicBlog'),
   '把nanobot关进Docker后，如何同时保留浏览器可视化与自动化',
   'https://ddadaal.me/articles/vnc-browser-from-nanobot-in-docker/cn',
@@ -261,7 +261,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-06T10:50:00.000Z'
 );
 -- Post 31: Kant - 从伊朗战争 谈 马丁·布伯的 《我与你》
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Kant'),
   '从伊朗战争 谈 马丁·布伯的 《我与你》',
   'https://deathfugue.com/archives/91.html',
@@ -269,7 +269,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-06T03:47:00.000Z'
 );
 -- Post 32: Dejavu's Blog - Scaleway VPS 安装 Debian 系统
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   'Scaleway VPS 安装 Debian 系统',
   'https://blog.dejavu.moe/posts/scaleway-ipv6-only-vps-install-debian/',
@@ -277,7 +277,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-06T01:33:17.000Z'
 );
 -- Post 33: LoveApple的主页 - linuxqq在KDE Plasma下无法输入的问题。
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   'linuxqq在KDE Plasma下无法输入的问题。',
   'https://loveapple.icu/linuxqq-fcitx5/',
@@ -285,7 +285,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-03T23:57:38.000Z'
 );
 -- Post 34: 张洪 Heo - 如何创作AI歌曲？从生成歌词、歌曲创作、专辑封面到音乐发行
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '如何创作AI歌曲？从生成歌词、歌曲创作、专辑封面到音乐发行',
   'https://blog.zhheo.com/p/cpw1bogx.html',
@@ -293,7 +293,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-03T02:22:12.000Z'
 );
 -- Post 35: 精灵王 - Markdown 语法全面测试指南
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '精灵王'),
   'Markdown 语法全面测试指南',
   'https://jingling.im/blog/markdown-syntax-guide',
@@ -301,7 +301,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-03T00:00:00.000Z'
 );
 -- Post 36: Domon - 2026年2月阅读书摘
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Domon'),
   '2026年2月阅读书摘',
   'https://www.domon.cn/2026-2yue-yue-du-shu-zhai/',
@@ -309,7 +309,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-02T12:23:43.000Z'
 );
 -- Post 37: 龙场茶室 - 国内订阅 Google AI Pro，用上 Antigravity 真挺难
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '龙场茶室'),
   '国内订阅 Google AI Pro，用上 Antigravity 真挺难',
   'https://blog.peterchen97.cn/posts/38-%E5%A4%A7%E9%99%86%E8%AE%A2%E9%98%85-google-ai-pro/',
@@ -317,7 +317,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-03-02T00:00:00.000Z'
 );
 -- Post 38: 太隐 - 隐说 NO.14 真理必须是前进的
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '隐说 NO.14 真理必须是前进的',
   'https://wangyurui.com/posts/yin-shuo-no-14-cong-zheng-zhi-xue-jiao-du-du-li-8630e17e',
@@ -325,7 +325,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-28T11:26:55.000Z'
 );
 -- Post 39: Dejavu's Blog - Debian 13 下部署 AsmBB 论坛
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   'Debian 13 下部署 AsmBB 论坛',
   'https://blog.dejavu.moe/posts/deploy-asmbb-on-debian-13-with-nginx/',
@@ -333,7 +333,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-26T10:00:43.000Z'
 );
 -- Post 40: ChrAlpha 的幻想乡 - AI Agent 病毒：从 OpenClaw 病毒式成功到成为病毒
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'ChrAlpha 的幻想乡'),
   'AI Agent 病毒：从 OpenClaw 病毒式成功到成为病毒',
   'https://blog.ichr.me/post/ai-agent-virus/',
@@ -341,7 +341,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-25T14:53:40.000Z'
 );
 -- Post 41: 张洪 Heo - 洪绘历史记录发布！无限存储你的浏览器历史记录，防止历史记录被自动删除
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '洪绘历史记录发布！无限存储你的浏览器历史记录，防止历史记录被自动删除',
   'https://blog.zhheo.com/p/0tr5lmby.html',
@@ -349,7 +349,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-25T03:13:58.000Z'
 );
 -- Post 42: LoveApple的主页 - 家族琐记
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   '家族琐记',
   'https://loveapple.icu/family-blood/',
@@ -357,7 +357,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-21T13:19:01.000Z'
 );
 -- Post 43: fengkx - 2025
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'fengkx'),
   '2025',
   'https://www.fengkx.top/post/year-2025/',
@@ -367,7 +367,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-19T11:21:14.000Z'
 );
 -- Post 44: Sukka - 杀死那只鹦鹉 —— 「白话文」讲解一种探测 XTLS VLESS REALITY 的手段
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Sukka'),
   '杀死那只鹦鹉 —— 「白话文」讲解一种探测 XTLS VLESS REALITY 的手段',
   'https://blog.skk.moe/post/to-kill-a-parrot-detecting-xtls-vless-reality-server/',
@@ -375,7 +375,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-16T04:00:00.000Z'
 );
 -- Post 45: NoneData - 两款软件助你方便调节 Windows 外接显示器亮度
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'NoneData'),
   '两款软件助你方便调节 Windows 外接显示器亮度',
   'https://www.nonedata.com/posts/lightness-adjustment-for-windows.html',
@@ -383,7 +383,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-12T00:00:00.000Z'
 );
 -- Post 46: NoneData - iBasso DC07Pro 对比 EPZ TP55
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'NoneData'),
   'iBasso DC07Pro 对比 EPZ TP55',
   'https://www.nonedata.com/posts/music-connector.html',
@@ -391,7 +391,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-10T09:08:39.000Z'
 );
 -- Post 47: LoveApple的主页 - 为云服务器配置clash-for-linux
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   '为云服务器配置clash-for-linux',
   'https://loveapple.icu/clash-for-linux/',
@@ -399,7 +399,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-09T04:43:44.000Z'
 );
 -- Post 48: Domon - 2026年1月阅读书摘
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Domon'),
   '2026年1月阅读书摘',
   'https://www.domon.cn/2026-1yue-yue-du-shu-zhai/',
@@ -407,7 +407,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-08T08:58:28.000Z'
 );
 -- Post 49: 太隐 - 棱镜通讯 No.117 安迪·鲁宾（Andy Rubin）
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '棱镜通讯 No.117 安迪·鲁宾（Andy Rubin）',
   'https://wangyurui.com/posts/leng-jing-tong-xun-no-117-4bcde289',
@@ -415,7 +415,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-08T03:46:02.000Z'
 );
 -- Post 50: NoneData - 从 Apple watch S4 升级到 S10 的使用体验
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'NoneData'),
   '从 Apple watch S4 升级到 S10 的使用体验',
   'https://www.nonedata.com/posts/apple-watch-s10.html',
@@ -423,7 +423,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-08T00:00:00.000Z'
 );
 -- Post 51: 太隐 - “放不下”的李白
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '“放不下”的李白',
   'https://wangyurui.com/posts/fu-sheng-da-meng-60a9965f',
@@ -431,7 +431,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-07T09:56:12.000Z'
 );
 -- Post 52: LoveApple的主页 - 局域网下的家庭影音服务实践对比
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   '局域网下的家庭影音服务实践对比',
   'https://loveapple.icu/home-video-services/',
@@ -439,7 +439,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-06T13:58:50.000Z'
 );
 -- Post 53: LoveApple的主页 - N5105NAS：配置WebDav服务
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   'N5105NAS：配置WebDav服务',
   'https://loveapple.icu/N5105-4/',
@@ -447,7 +447,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-05T16:11:41.000Z'
 );
 -- Post 54: 张洪 Heo - 红包封面：祝大家新的一年发大财啦！
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '红包封面：祝大家新的一年发大财啦！',
   'https://blog.zhheo.com/p/ulnwjohw.html',
@@ -455,7 +455,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-04T04:06:54.000Z'
 );
 -- Post 55: VicBlog - 可划分显存 != 统一内存：AI Max+ 395 64G AI推理性能
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'VicBlog'),
   '可划分显存 != 统一内存：AI Max+ 395 64G AI推理性能',
   'https://ddadaal.me/articles/aimaxplus395-ai-inference/cn',
@@ -491,7 +491,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-02T12:34:00.000Z'
 );
 -- Post 56: Dejavu's Blog - 使用 Kopia 自动化备份服务器数据
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   '使用 Kopia 自动化备份服务器数据',
   'https://blog.dejavu.moe/posts/backup-your-data-with-kopia/',
@@ -499,7 +499,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-02-01T11:56:43.000Z'
 );
 -- Post 57: Dejavu's Blog - 给 Docker 启用 IPv6 支持
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   '给 Docker 启用 IPv6 支持',
   'https://blog.dejavu.moe/posts/enable-ipv6-in-docker/',
@@ -507,7 +507,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-31T10:41:04.000Z'
 );
 -- Post 58: Dejavu's Blog - Netcup 服务器安装自定义 ISO 镜像
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   'Netcup 服务器安装自定义 ISO 镜像',
   'https://blog.dejavu.moe/posts/reinstall-netcup-server-using-custom-iso/',
@@ -515,7 +515,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-30T13:27:06.000Z'
 );
 -- Post 59: LoveApple的主页 - N5105服务器：如何从公网访问？
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   'N5105服务器：如何从公网访问？',
   'https://loveapple.icu/N5105-3/',
@@ -523,7 +523,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-26T15:56:18.000Z'
 );
 -- Post 60: 猫鱼的小站 - 密码保护：感谢110
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '猫鱼的小站'),
   '密码保护：感谢110',
   'https://2cat.net/%e6%84%9f%e8%b0%a2110/',
@@ -531,7 +531,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-25T11:26:59.000Z'
 );
 -- Post 61: 张洪 Heo - 如何将 FinalcutPro的fcpxml文件转换为srt字幕？导出srt字幕方法
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '如何将 FinalcutPro的fcpxml文件转换为srt字幕？导出srt字幕方法',
   'https://blog.zhheo.com/p/obo78geq.html',
@@ -539,7 +539,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-22T04:19:17.000Z'
 );
 -- Post 62: 太隐 - 女相之死
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '女相之死',
   'https://wangyurui.com/posts/zhao-rong-chuan-0deff19f',
@@ -547,7 +547,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-18T11:27:20.000Z'
 );
 -- Post 63: LoveApple的主页 - N5105软路由：WiFi配置
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   'N5105软路由：WiFi配置',
   'https://loveapple.icu/N5105-2/',
@@ -555,7 +555,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-18T05:11:32.000Z'
 );
 -- Post 64: Dejavu's Blog - 在 Debian 13 上自托管 Mox 邮局
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   '在 Debian 13 上自托管 Mox 邮局',
   'https://blog.dejavu.moe/posts/hosting-mox-mail-server-on-debian-13/',
@@ -563,7 +563,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-17T22:45:24.000Z'
 );
 -- Post 65: LoveApple的主页 - 水煮鱼的济州岛旅行日记：Day4
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   '水煮鱼的济州岛旅行日记：Day4',
   'https://loveapple.icu/Jeju-day-4/',
@@ -571,7 +571,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-17T11:00:24.000Z'
 );
 -- Post 66: LoveApple的主页 - 水煮鱼的济州岛旅行日记：Day3
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   '水煮鱼的济州岛旅行日记：Day3',
   'https://loveapple.icu/Jeju-day-3/',
@@ -579,7 +579,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-17T11:00:16.000Z'
 );
 -- Post 67: Dejavu's Blog - 使用 Stalwart 自托管邮局服务
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   '使用 Stalwart 自托管邮局服务',
   'https://blog.dejavu.moe/posts/hosting-mail-and-collaboration-server-with-stalwart/',
@@ -587,7 +587,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-17T00:12:41.000Z'
 );
 -- Post 68: NoneData - 自己动手给 FiiO Q5s Type-C 版本更换电池
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'NoneData'),
   '自己动手给 FiiO Q5s Type-C 版本更换电池',
   'https://www.nonedata.com/posts/fiio-q5s.html',
@@ -595,7 +595,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-15T00:00:00.000Z'
 );
 -- Post 69: Dejavu's Blog - 烽火 HG5582A 光猫开启桥接模式
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   '烽火 HG5582A 光猫开启桥接模式',
   'https://blog.dejavu.moe/posts/fiberhome-hg5582a-optical-modem-bridge-mode/',
@@ -603,7 +603,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-14T20:42:01.000Z'
 );
 -- Post 70: 张洪 Heo - 如何免水印下载豆包生成的图片？豆包AI图去水印，无水印下载
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '如何免水印下载豆包生成的图片？豆包AI图去水印，无水印下载',
   'https://blog.zhheo.com/p/tw9uwtki.html',
@@ -611,7 +611,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-14T05:31:42.000Z'
 );
 -- Post 71: LoveApple的主页 - 水煮鱼的济州岛旅行日记：Day2
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   '水煮鱼的济州岛旅行日记：Day2',
   'https://loveapple.icu/Jeju-day-2/',
@@ -619,7 +619,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-13T13:39:14.000Z'
 );
 -- Post 72: Dejavu's Blog - Docker 自托管 Shlink 短链服务
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   'Docker 自托管 Shlink 短链服务',
   'https://blog.dejavu.moe/posts/deploy-shlink-with-docker-and-nginx/',
@@ -627,7 +627,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-13T10:42:15.000Z'
 );
 -- Post 73: 太隐 - 隐说 NO.13  禅宗三重境
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '隐说 NO.13  禅宗三重境',
   'https://wangyurui.com/posts/yin-shuo-no-13-shan-zong-san-zhong-jing-d3e84c7e',
@@ -635,7 +635,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-12T14:06:49.000Z'
 );
 -- Post 74: LoveApple的主页 - 水煮鱼的济州岛旅行日记：Day1
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   '水煮鱼的济州岛旅行日记：Day1',
   'https://loveapple.icu/Jeju-day-1/',
@@ -643,7 +643,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-12T12:13:36.000Z'
 );
 -- Post 75: 张洪 Heo - Mac中罗技鼠标键盘近期失灵问题解决方法，Logi Options 打不开
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   'Mac中罗技鼠标键盘近期失灵问题解决方法，Logi Options 打不开',
   'https://blog.zhheo.com/p/9jbu7q9r.html',
@@ -651,7 +651,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-12T07:42:24.000Z'
 );
 -- Post 76: 张洪 Heo - Mac如何将纯图片PDF转换成嵌入文字的PDF？让纯图PDF支持选中复制
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   'Mac如何将纯图片PDF转换成嵌入文字的PDF？让纯图PDF支持选中复制',
   'https://blog.zhheo.com/p/9vtjebeo.html',
@@ -659,7 +659,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-12T04:26:04.000Z'
 );
 -- Post 77: 猫鱼的小站 - 我永远爱你，老公。
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '猫鱼的小站'),
   '我永远爱你，老公。',
   'https://2cat.net/%e6%88%91%e6%b0%b8%e8%bf%9c%e7%88%b1%e4%bd%a0%ef%bc%8c%e8%80%81%e5%85%ac%e3%80%82/',
@@ -667,7 +667,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-11T11:17:45.000Z'
 );
 -- Post 78: LoveApple的主页 - N5105小主机初配置
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   'N5105小主机初配置',
   'https://loveapple.icu/N5105-1/',
@@ -675,7 +675,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-10T11:59:57.000Z'
 );
 -- Post 79: Sukka - 为 Microsoft 365 添加 1Password 等 Synced Passkey
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Sukka'),
   '为 Microsoft 365 添加 1Password 等 Synced Passkey',
   'https://blog.skk.moe/post/microsoft-365-1password-passkey/',
@@ -683,7 +683,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-10T08:30:00.000Z'
 );
 -- Post 80: SpencerWoo - iMac M1 上的新 macOS 强调色（也不算新啦）
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'SpencerWoo'),
   'iMac M1 上的新 macOS 强调色（也不算新啦）',
   'https://spencerwoo.com/blog/macos-custom-accent-color/',
@@ -691,7 +691,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-10T00:00:00.000Z'
 );
 -- Post 81: Dejavu's Blog - 部署 Obsidian LiveSync 实时同步服务指南
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   '部署 Obsidian LiveSync 实时同步服务指南',
   'https://blog.dejavu.moe/posts/selfhosting-obsidian-livesync-service-guide/',
@@ -699,7 +699,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-05T09:56:59.000Z'
 );
 -- Post 82: 龙场茶室 - 2025 年度大赏
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '龙场茶室'),
   '2025 年度大赏',
   'https://blog.peterchen97.cn/posts/39-2025-%E5%B9%B4%E5%BA%A6%E5%A4%A7%E8%B5%8F/',
@@ -707,7 +707,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-05T00:00:00.000Z'
 );
 -- Post 83: Domon - 2025年12月阅读书摘
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Domon'),
   '2025年12月阅读书摘',
   'https://www.domon.cn/2025-12yue-yue-du-shu-zhai/',
@@ -715,7 +715,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-03T13:12:25.000Z'
 );
 -- Post 84: LoveApple的主页 - 鱼论：论王座风潮
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   '鱼论：论王座风潮',
   'https://loveapple.icu/view-1/',
@@ -723,7 +723,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2026-01-02T10:24:41.000Z'
 );
 -- Post 85: 太隐 - 我的 2025 年：“没想到”就是人生
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '我的 2025 年：“没想到”就是人生',
   'https://wangyurui.com/posts/wo-de-2025-nian-mei-xiang-dao-jiu-shi-ren-sheng-155ea5bc',
@@ -731,7 +731,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-31T12:17:29.000Z'
 );
 -- Post 86: VicBlog - 2025年总结
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'VicBlog'),
   '2025年总结',
   'https://ddadaal.me/articles/summary-for-2025/cn',
@@ -746,7 +746,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-31T07:30:00.000Z'
 );
 -- Post 87: 烫烫烫的记事本 - 课堂启发下的蛋白质折叠过程性思考备忘录
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '烫烫烫的记事本'),
   '课堂启发下的蛋白质折叠过程性思考备忘录',
   'https://烫烫烫的锟斤拷.top/posts/memo-protein-folding',
@@ -755,7 +755,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-31T02:03:33.000Z'
 );
 -- Post 88: SpencerWoo - Bag of Tricks for Claude Code：克劳德之踩坑记录
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'SpencerWoo'),
   'Bag of Tricks for Claude Code：克劳德之踩坑记录',
   'https://spencerwoo.com/blog/bag-of-tricks-for-claude-code/',
@@ -763,7 +763,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-30T00:00:00.000Z'
 );
 -- Post 89: 太隐 - 隐说 NO.12 鲁迅的书单
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '太隐'),
   '隐说 NO.12 鲁迅的书单',
   'https://wangyurui.com/posts/yin-shuo-no-12-lu-xun-de-shu-dan-b9794e45',
@@ -771,7 +771,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-27T06:37:15.000Z'
 );
 -- Post 90: 张洪 Heo - 我在2026年推荐的Mac软件
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '我在2026年推荐的Mac软件',
   'https://blog.zhheo.com/p/vtyyrfd3.html',
@@ -779,7 +779,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-25T10:39:00.000Z'
 );
 -- Post 91: 张洪 Heo - 在Mac上使用快捷指令解决：已损坏，无法打开。你应该将它移到废纸篓
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '在Mac上使用快捷指令解决：已损坏，无法打开。你应该将它移到废纸篓',
   'https://blog.zhheo.com/p/tsk1v2fy.html',
@@ -787,7 +787,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-24T02:41:58.000Z'
 );
 -- Post 92: 张洪 Heo - 如何移除Mac中访达多余的菜单项？还你一个清爽的访达右键菜单
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '如何移除Mac中访达多余的菜单项？还你一个清爽的访达右键菜单',
   'https://blog.zhheo.com/p/hiubxt8w.html',
@@ -795,7 +795,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-23T09:35:43.000Z'
 );
 -- Post 93: 张洪 Heo - 提示 SMS Fee 无法登录怎么办，跳过 SMS Fee 方法
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '提示 SMS Fee 无法登录怎么办，跳过 SMS Fee 方法',
   'https://blog.zhheo.com/p/41n5tavc.html',
@@ -803,7 +803,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-23T01:51:02.000Z'
 );
 -- Post 94: Dejavu's Blog - 我的 2025 年不完全回顾
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   '我的 2025 年不完全回顾',
   'https://blog.dejavu.moe/posts/2025-year-summary/',
@@ -811,7 +811,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-22T10:32:03.000Z'
 );
 -- Post 95: 张洪 Heo - 从iPhone13Pro换到iPhone17，我的iPhone17上手体验
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '张洪 Heo'),
   '从iPhone13Pro换到iPhone17，我的iPhone17上手体验',
   'https://blog.zhheo.com/p/1rb05exh.html',
@@ -819,7 +819,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-22T02:36:59.000Z'
 );
 -- Post 96: NoneData - 2025年9月底，265K+5080装机历程及体验
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'NoneData'),
   '2025年9月底，265K+5080装机历程及体验',
   'https://www.nonedata.com/posts/computer-with-265k-5080.html',
@@ -827,7 +827,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-21T00:00:00.000Z'
 );
 -- Post 97: ChrAlpha 的幻想乡 - 写给非科班的 HPC 无痛上手：在超算节点上使用 VS Code
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'ChrAlpha 的幻想乡'),
   '写给非科班的 HPC 无痛上手：在超算节点上使用 VS Code',
   'https://blog.ichr.me/post/hpc-vscode/',
@@ -835,7 +835,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-18T15:01:12.000Z'
 );
 -- Post 98: 烫烫烫的记事本 - 大学之道
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = '烫烫烫的记事本'),
   '大学之道',
   'https://烫烫烫的锟斤拷.top/posts/the-way-of-university',
@@ -843,7 +843,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-18T03:40:47.000Z'
 );
 -- Post 99: LoveApple的主页 - 在网页中插入icons
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   '在网页中插入icons',
   'https://loveapple.icu/iconfont-inject/',
@@ -851,7 +851,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-18T03:18:56.000Z'
 );
 -- Post 100: Dejavu's Blog - 我的 2025 年度自托管服务报告
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   '我的 2025 年度自托管服务报告',
   'https://blog.dejavu.moe/posts/my-2025-selfhosted-services-report/',
@@ -859,7 +859,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-17T10:55:24.000Z'
 );
 -- Post 101: SkyWT - 那些「酷，但用不着」的 self-hosted 应用
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'SkyWT'),
   '那些「酷，但用不着」的 self-hosted 应用',
   'https://skywt.cn/blog/those-cool-but-unnecessary-self-hosted-apps',
@@ -871,7 +871,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-17T02:00:00.000Z'
 );
 -- Post 102: Kant - 韩大头的新闻报纸摘要 2025年12月16日周二
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Kant'),
   '韩大头的新闻报纸摘要 2025年12月16日周二',
   'https://deathfugue.com/archives/90.html',
@@ -879,7 +879,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-16T14:42:00.000Z'
 );
 -- Post 103: Dejavu's Blog - Linux 下 Intel 核显驱动配置与硬件加速
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   'Linux 下 Intel 核显驱动配置与硬件加速',
   'https://blog.dejavu.moe/posts/fedora-graphics-driver-with-hardware-acceleration/',
@@ -887,7 +887,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-15T02:57:45.000Z'
 );
 -- Post 104: Dejavu's Blog - Fedora Linux 安装配置记录
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   'Fedora Linux 安装配置记录',
   'https://blog.dejavu.moe/posts/install-and-use-fedora-workstation/',
@@ -895,7 +895,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-14T07:08:07.000Z'
 );
 -- Post 105: LoveApple的主页 - F**k Bing Webmaster!
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   'F**k Bing Webmaster!',
   'https://loveapple.icu/fk-bing-webmaster/',
@@ -903,7 +903,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-13T14:16:21.000Z'
 );
 -- Post 106: LoveApple的主页 - Random Image API上线
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   'Random Image API上线',
   'https://loveapple.icu/my-image-building/',
@@ -911,7 +911,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-13T11:16:35.000Z'
 );
 -- Post 107: LoveApple的主页 - 龙歌三店横评：来自2025年12月的南京
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   '龙歌三店横评：来自2025年12月的南京',
   'https://loveapple.icu/loonger-hotpot-Dec25/',
@@ -919,7 +919,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-11T02:44:00.000Z'
 );
 -- Post 108: Dejavu's Blog - 2025 年优雅地自托管 RSS 服务
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   '2025 年优雅地自托管 RSS 服务',
   'https://blog.dejavu.moe/posts/gracefully-selfhosted-rss-service/',
@@ -927,7 +927,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-10T07:25:14.000Z'
 );
 -- Post 109: LoveApple的主页 - Hexo+Butterfly深入化自定义：以友链页面卡片宽度调整为例
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   'Hexo+Butterfly深入化自定义：以友链页面卡片宽度调整为例',
   'https://loveapple.icu/link-card-width/',
@@ -935,7 +935,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-09T03:52:08.000Z'
 );
 -- Post 110: LoveApple的主页 - Hexo+Butterfly的dark mode开发
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   'Hexo+Butterfly的dark mode开发',
   'https://loveapple.icu/dark-mode/',
@@ -943,7 +943,7 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-08T04:54:26.000Z'
 );
 -- Post 111: Dejavu's Blog - 自托管部署 Pocket ID 与 Tinyauth 完全指南
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   '自托管部署 Pocket ID 与 Tinyauth 完全指南',
   'https://blog.dejavu.moe/posts/build-passkeys-identity-system-with-pocketid-x-tinyauth/',
@@ -951,74 +951,75 @@ INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   '2025-12-08T00:58:36.000Z'
 );
 -- Post 112: Dejavu's Blog - Woodpecker CI 和 Gitea 实现 Hugo 自动部署
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   'Woodpecker CI 和 Gitea 实现 Hugo 自动部署',
   'https://blog.dejavu.moe/posts/build-hugo-site-with-gitea-and-woodpecker-ci/',
   '在 Gitea 中集成 Woodpecker CI 自动化部署 Hugo 网站并刷新 Cloudflare CDN 缓存',
   '2025-12-03T15:00:03.000Z'
 );
--- Post 113: Dejavu's Blog - Gitea/Forgejo 集成 Woodpecker CI/CD
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+-- Post 113: Cysime Moflu - 从Disqus迁移到Waline的踩坑笔记
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+  (SELECT id FROM blogs WHERE title = 'Cysime Moflu'),
+  '从Disqus迁移到Waline的踩坑笔记',
+  'https://blog.cysi.me/2025/12/migrate-from-disqus-to-waline/',
+  '<img src="https://blog.cysi.me/2025/12/migrate-from-disqus-to-waline/comments.jpg" alt="Featured image of post 从Disqus迁移到Waline的踩坑笔记" /><p>我的博客是2022年从Wordpress换成Hugo的，受制于Hugo这种纯静态框架的限制，必须要额外再配备评论系统。当时Waline等产品只能使用Leancloud作为数据库，所以<a class="link" href="https://blog.cysi.me/2022/05/migrate-to-hugo/#%E8%AF%84%E8%AE%BA%E8%BF%81%E7%A7%BB%E5%92%8C%E4%BD%BF%E7%94%A8" target="_blank" rel="noopener"
+>为了省事直接用的Disqus</a>，后者是可以直接接入Wordpress的，因此可以非常简单地转移到Hugo，并且使用DisqusJS这样的项目并配合反向代理的话体验还不错。但到了现在，即便使用了Vercel',
+  '2025-12-03T01:05:29.000Z'
+);
+-- Post 114: Dejavu's Blog - Gitea/Forgejo 集成 Woodpecker CI/CD
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   'Gitea/Forgejo 集成 Woodpecker CI/CD',
   'https://blog.dejavu.moe/posts/selfhosted-gitea-ci-with-woodpecker/',
   '使用 Docker 部署 Woodpecker CI，并与自托管 Gitea 集成，实现自动化持续集成与交付。',
   '2025-12-02T04:53:42.000Z'
 );
--- Post 114: Domon - 2025年11月阅读书摘
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+-- Post 115: Domon - 2025年11月阅读书摘
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Domon'),
   '2025年11月阅读书摘',
   'https://www.domon.cn/2025-11yue-yue-du-shu-zhai/',
   '小事听从你的脑，大事听从你的心。 ',
   '2025-12-02T01:36:00.000Z'
 );
--- Post 115: Dejavu's Blog - 在 Blinko 中使用 Ollama 作为 AI 供应商
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+-- Post 116: Dejavu's Blog - 在 Blinko 中使用 Ollama 作为 AI 供应商
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   '在 Blinko 中使用 Ollama 作为 AI 供应商',
   'https://blog.dejavu.moe/posts/blinko-with-ollama-ai-provider/',
   '本文介绍如何在 Blinko 自托管知识库中集成 Ollama 作为 AI 供应商，以使用 Embedding 模型为例',
   '2025-12-01T10:40:15.000Z'
 );
--- Post 116: Kant - Ai 赋能 里德·霍夫曼
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+-- Post 117: Kant - Ai 赋能 里德·霍夫曼
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Kant'),
   'Ai 赋能 里德·霍夫曼',
   'https://deathfugue.com/archives/87.html',
   '自测量表[album][/album]量表记分[album][/album]定向指引[album][/album]AI 赋能中提到的10 大原则1.Ai 焦虑时代，超级能动性让我们找回人生掌控权...',
   '2025-11-30T13:52:00.000Z'
 );
--- Post 117: Dejavu's Blog - Docker 部署 Gitea/Forgejo
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+-- Post 118: Dejavu's Blog - Docker 部署 Gitea/Forgejo
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
   'Docker 部署 Gitea/Forgejo',
   'https://blog.dejavu.moe/posts/docker-install-gitea-with-nginx-and-cloudflared/',
   '零端口暴露，使用 Docker 部署 Gitea/Forgejo，通过 Nginx、Cloudflare Tunnel 实现安全访问。',
   '2025-11-30T12:41:52.000Z'
 );
--- Post 118: Sukka - 用代码和 Git 管理 DNS 记录 —— DNSControl 和 GitHub Actions CI/CD 实践
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+-- Post 119: Sukka - 用代码和 Git 管理 DNS 记录 —— DNSControl 和 GitHub Actions CI/CD 实践
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'Sukka'),
   '用代码和 Git 管理 DNS 记录 —— DNSControl 和 GitHub Actions CI/CD 实践',
   'https://blog.skk.moe/post/dns-as-code-via-dnscontrol/',
   '作为互联网基础设施的基石之一，DNS 也是最脆弱的环节之一。在项目从上线、运营维护的整个生命周期中，DNS 记录的变更和管理是不可避免的。传统上，DNS 记录的管理往往依赖于域名注册商或 DNS 服务商提供的 控制平面，操作不直观、不可复现、容易出错、难以追溯、没有自动化。基础设施即代码（Infrastructure as Code, IaC）无疑为脆弱的 DNS 记录管理给出了一个方向。 ',
   '2025-11-30T07:30:00.000Z'
 );
--- Post 119: LoveApple的主页 - 为Hexo博客+Butterfly主题启用Giscus评论系统：一些Bing上搜不到的技巧
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
+-- Post 120: LoveApple的主页 - 为Hexo博客+Butterfly主题启用Giscus评论系统：一些Bing上搜不到的技巧
+INSERT OR REPLACE INTO posts (blog_id, title, link, summary, pub_date) VALUES (
   (SELECT id FROM blogs WHERE title = 'LoveApple的主页'),
   '为Hexo博客+Butterfly主题启用Giscus评论系统：一些Bing上搜不到的技巧',
   'https://loveapple.icu/giscis-intro/',
   '一篇关于在Hexo博客中使用Butterfly主题配置Giscus评论系统的实用指南。文章重点分享了如何解决一个官方文档未提及的进阶配置问题：通过正确使用option字段来实现评论框置顶等自定义功能。',
   '2025-11-29T08:02:51.000Z'
-);
--- Post 120: Dejavu's Blog - Plausible CE 启用城市级地理位置识别
-INSERT INTO posts (blog_id, title, link, summary, pub_date) VALUES (
-  (SELECT id FROM blogs WHERE title = 'Dejavu''s Blog'),
-  'Plausible CE 启用城市级地理位置识别',
-  'https://blog.dejavu.moe/posts/plausible-with-city-accuracy-geoip/',
-  '解决 GeoIP 下载 HTTP 451 错误，使用 Shell 脚本自动下载和更新 GeoLite2 数据库',
-  '2025-11-29T07:23:01.000Z'
 );
