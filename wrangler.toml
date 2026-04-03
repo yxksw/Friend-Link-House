@@ -9,6 +9,3 @@ main = "workers-site/index.js"
 
 [site]
 bucket = "./web/dist"
-
-[alias]
-"@cloudflare/kv-asset-handler" = "./workers-site/node_modules/@cloudflare/kv-asset-handler/dist/index.js"
