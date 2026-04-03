@@ -76,16 +76,16 @@ jobs:
                   # 安装 Wrangler
                   npm install -g wrangler
 
-                  # 同步博客列表
+                  # 同步博客列表（使用 --remote 访问远程数据库）
                   if [ -f "d1-init.sql" ]; then
                     echo "Syncing blogs..."
-                    wrangler d1 execute friend-link-house-db --file=./d1-init.sql --yes
+                    wrangler d1 execute friend-link-house-db --file=./d1-init.sql --remote --yes
                   fi
 
                   # 同步文章数据
                   if [ -f "d1-sync-posts.sql" ]; then
                     echo "Syncing posts..."
-                    wrangler d1 execute friend-link-house-db --file=./d1-sync-posts.sql --yes
+                    wrangler d1 execute friend-link-house-db --file=./d1-sync-posts.sql --remote --yes
                   fi
               env:
                   CLOUDFLARE_API_TOKEN: ${{ secrets.CF_WORKERS_TOKEN }}
