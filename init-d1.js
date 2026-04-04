@@ -119,10 +119,10 @@ async function generateSyncScript() {
     }
   }
 
-  // 去重并排序
+  // 去重并排序（根据 link 去重，更准确）
   const uniquePosts = posts.filter(
     (arr, index, self) =>
-      index === self.findIndex((t) => t.title === arr.title),
+      index === self.findIndex((t) => t.link === arr.link),
   );
   uniquePosts.sort((a, b) => new Date(b.pub_date) - new Date(a.pub_date));
 
