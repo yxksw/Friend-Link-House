@@ -10,6 +10,35 @@ const loading = ref(true);
 const error = ref(null);
 const showBackToTop = ref(false);
 const isDarkMode = ref(false);
+const siteRunningTime = ref('');
+let timer = null;
+
+// 建站时间配置（请修改为你实际的建站日期）
+const siteStartDate = new Date('2026-04-04 12:00:00'); // 格式：年-月-日 时:分:秒
+
+// 计算建站时长（精准到秒）
+const getSiteRunningTime = () => {
+  const now = new Date();
+  const diff = now - siteStartDate;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  const years = Math.floor(days / 365);
+  const remainingDays = days % 365;
+
+  if (years > 0) {
+    return `${years}年${remainingDays}天${hours}时${minutes}分${seconds}秒`;
+  }
+  return `${days}天${hours}时${minutes}分${seconds}秒`;
+};
+
+// 更新建站时间
+const updateSiteRunningTime = () => {
+  siteRunningTime.value = getSiteRunningTime();
+};
 
 // 回到顶部功能
 const scrollToTop = () => {
@@ -104,10 +133,10 @@ async function fetchBlogs() {
 onMounted(async () => {
   // 初始化主题
   initTheme();
-  
+
   await Promise.all([fetchPosts(), fetchBlogs()]);
   loading.value = false;
-  
+
   // 图片懒加载
   var imgs = document.getElementsByTagName("img");
   for (var i = 0; i < imgs.length; i++) {
@@ -115,14 +144,23 @@ onMounted(async () => {
       imgs[i].src = imgs[i].dataset.src;
     }
   }
-  
+
   // 添加滚动监听
   window.addEventListener('scroll', handleScroll);
+
+  // 初始化并启动建站时间定时器
+  updateSiteRunningTime();
+  timer = setInterval(updateSiteRunningTime, 1000);
 });
 
 onUnmounted(() => {
   // 移除滚动监听
   window.removeEventListener('scroll', handleScroll);
+
+  // 清除建站时间定时器
+  if (timer) {
+    clearInterval(timer);
+  }
 });
 </script>
 
@@ -136,10 +174,13 @@ onUnmounted(() => {
       <a
         id="logo-right"
         target="_blank"
-        href="https://github.com/yxksw/Friend-Link-House"
+        href="https://github.com/yxksw/Friend-Link-House/edit/main/README.md"
+        title="申请友链"
       >
-        <img id="logo-github" src="./assets/github.png" alt="Logo" />
-        <span id="logo-text">GitHub</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+        <span id="logo-text">申请友链</span>
       </a>
     </div>
     <div id="banner">{{ info }}</div>
@@ -253,6 +294,18 @@ onUnmounted(() => {
       <path fill="currentColor" fill-rule="evenodd" d="M14 3H2V2h12zM7.979 4.008l4.484 4.484l-.707.707l-3.277-3.277v7.984h-1V5.922L4.2 9.199l-.707-.707z" clip-rule="evenodd"/>
     </svg>
   </button>
+
+  <!-- 底部组件 -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="footer-text">
+        © {{ new Date().getFullYear() }} {{ title }} · 已运行 {{ siteRunningTime }}
+      </p>
+      <p class="footer-text">
+        Powered by <a href="https://github.com/yxksw/Friend-Link-House" target="_blank">Friend-Link-House</a>
+      </p>
+    </div>
+  </footer>
 </template>
 
 <script>
@@ -551,5 +604,62 @@ export default {
 /* 深色模式时间线年份 */
 :root.dark .timeline-item--year {
   color: var(--text-color);
+}
+
+/* ==================== 底部组件样式 ==================== */
+
+.site-footer {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.footer-text {
+  margin: 0.5rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.footer-text a {
+  color: #3273dc;
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  color: #2c323c;
+  text-decoration: underline;
+}
+
+/* 深色模式底部样式 */
+:root.dark .site-footer {
+  background-color: #242424;
+  border-top-color: #333;
+}
+
+:root.dark .footer-text {
+  color: #a0a0a0;
+}
+
+:root.dark .footer-text a {
+  color: #7eb8ff;
+}
+
+:root.dark .footer-text a:hover {
+  color: #a8d0ff;
+}
+
+/* 响应式适配 */
+@media (max-width: 1200px) {
+  .footer-content {
+    padding: 0 1rem;
+  }
 }
 </style>
