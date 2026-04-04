@@ -8,27 +8,14 @@ defineProps({
 </script>
 
 <template>
-  <a :key="props.htmlUrl" :href="props.htmlUrl" target="_blank">
+  <a :key="props.htmlUrl" :href="props.htmlUrl" target="_blank" :class="{ 'no-rss': props.xmlUrl == '', 'lost': props.status != 'active' }">
     <p
       class="title"
-      :style="'color:' + (props.xmlUrl == '' ? 'grey;' : 'black;') + 'text-decoration:' + (props.status == 'active' ? 'none;': 'line-through;')"
+      :class="{ 'no-rss': props.xmlUrl == '', 'lost': props.status != 'active' }"
     >
       {{ props.title }}
     </p>
-    <span
-      style="
-        display: -webkit-box;
-        font-size: 13px;
-        height: 18px;
-        line-height: 18px;
-        color: #999;
-        word-break: break-all;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-      "
-    >
+    <span class="url">
       <span style="display: inline-flex; align-items: center">
         <svg
           class="Zi Zi--InsertLink"
@@ -50,15 +37,53 @@ defineProps({
 <style scoped>
 a {
   color: #444950;
+  text-decoration: none;
 }
 
 .title {
-  /* font-size: large; */
-  /* font-weight: bolder; */
   margin-bottom: 0px;
+  color: #000;
+}
+
+.title.no-rss {
+  color: #808080;
+}
+
+.title.lost {
+  text-decoration: line-through;
+}
+
+.url {
+  display: -webkit-box;
+  font-size: 13px;
+  height: 18px;
+  line-height: 18px;
+  color: #999;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .link {
   font-size: medium;
+}
+
+/* 深色模式适配 */
+:root.dark a {
+  color: #e0e0e0;
+}
+
+:root.dark .title {
+  color: #e0e0e0;
+}
+
+:root.dark .title.no-rss {
+  color: #808080;
+}
+
+:root.dark .url {
+  color: #999;
 }
 </style>

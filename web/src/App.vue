@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import BlogInfoCard from "./components/BlogInfoCard.vue";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || '';
@@ -8,6 +8,51 @@ const posts = ref([]);
 const blogs = ref([]);
 const loading = ref(true);
 const error = ref(null);
+const showBackToTop = ref(false);
+const isDarkMode = ref(false);
+
+// 回到顶部功能
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+};
+
+// 监听滚动事件
+const handleScroll = () => {
+  showBackToTop.value = window.scrollY > 300;
+};
+
+// 切换深色/浅色模式
+const toggleTheme = () => {
+  isDarkMode.value = !isDarkMode.value;
+  if (isDarkMode.value) {
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  }
+};
+
+// 初始化主题
+const initTheme = () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    isDarkMode.value = true;
+    document.documentElement.classList.add('dark');
+  } else if (savedTheme === 'light') {
+    isDarkMode.value = false;
+    document.documentElement.classList.remove('dark');
+  } else {
+    // 检测系统偏好
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      isDarkMode.value = true;
+      document.documentElement.classList.add('dark');
+    }
+  }
+};
 
 // 获取文章数据
 async function fetchPosts() {
@@ -57,6 +102,9 @@ async function fetchBlogs() {
 }
 
 onMounted(async () => {
+  // 初始化主题
+  initTheme();
+  
   await Promise.all([fetchPosts(), fetchBlogs()]);
   loading.value = false;
   
@@ -67,6 +115,14 @@ onMounted(async () => {
       imgs[i].src = imgs[i].dataset.src;
     }
   }
+  
+  // 添加滚动监听
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  // 移除滚动监听
+  window.removeEventListener('scroll', handleScroll);
 });
 </script>
 
@@ -169,6 +225,34 @@ onMounted(async () => {
       </div>
     </aside>
   </div>
+
+  <!-- 主题切换按钮 -->
+  <button
+    class="theme-toggle"
+    @click="toggleTheme"
+    :title="isDarkMode ? '切换到浅色模式' : '切换到深色模式'"
+  >
+    <!-- 浅色模式图标（太阳） -->
+    <svg v-if="isDarkMode" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0-8 0m-5 0h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 11.4l.7.7m-12.1-.7l-.7.7"/>
+    </svg>
+    <!-- 深色模式图标（月亮） -->
+    <svg v-else xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3h.393a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 2.992z"/>
+    </svg>
+  </button>
+
+  <!-- 回到顶部按钮 -->
+  <button
+    v-show="showBackToTop"
+    class="back-to-top"
+    @click="scrollToTop"
+    title="回到顶部"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16">
+      <path fill="currentColor" fill-rule="evenodd" d="M14 3H2V2h12zM7.979 4.008l4.484 4.484l-.707.707l-3.277-3.277v7.984h-1V5.922L4.2 9.199l-.707-.707z" clip-rule="evenodd"/>
+    </svg>
+  </button>
 </template>
 
 <script>
@@ -176,8 +260,8 @@ export default {
   data() {
     return {
       // TODO: 需修改的页面配置
-      title: "idealclover 友链屋",
-      info: "仅收录友链博客文章，不代表翠翠本人观点",
+      title: "YXXの友链墙",
+      info: "仅收录友链博客文章，不代表我的本人观点",
       list: "友链列表",
     };
   },
@@ -291,5 +375,181 @@ export default {
 
 .info {
   color: grey;
+}
+
+/* 主题切换按钮样式 */
+.theme-toggle {
+  position: fixed;
+  bottom: 5.5rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  color: #333;
+}
+
+.theme-toggle:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+.theme-toggle svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* 回到顶部按钮样式 */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  color: #333;
+}
+
+.back-to-top:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.back-to-top:active {
+  transform: translateY(0);
+}
+
+.back-to-top svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ==================== 深色模式适配 ==================== */
+
+/* 深色模式基础变量 */
+:root.dark {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --border-color: #333;
+  --card-bg: #2a2a2a;
+  --link-color: #7eb8ff;
+  --link-hover: #a8d0ff;
+  --timeline-line: #444;
+  --timeline-dot: #666;
+  --header-bg: #242424;
+  --button-bg: #3a3a3a;
+  --button-hover: #4a4a4a;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+/* 深色模式样式 */
+:root.dark body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+:root.dark #header {
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+:root.dark #logo-text {
+  color: var(--text-color);
+}
+
+:root.dark #banner {
+  background-color: var(--card-bg);
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+:root.dark .timeline:before {
+  border-left-color: var(--timeline-line);
+}
+
+:root.dark .timeline-item:before {
+  background-color: var(--timeline-dot);
+}
+
+:root.dark .timeline-item__time {
+  color: var(--text-secondary);
+}
+
+:root.dark .timeline-item__link {
+  color: var(--link-color);
+}
+
+:root.dark .timeline-item__link:hover {
+  color: var(--link-hover);
+}
+
+:root.dark .summary-name {
+  color: var(--text-secondary);
+}
+
+:root.dark .loading,
+:root.dark .error {
+  color: var(--text-secondary);
+}
+
+:root.dark #sidebar {
+  background-color: var(--card-bg);
+}
+
+:root.dark .list {
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* 深色模式按钮样式 */
+:root.dark .theme-toggle,
+:root.dark .back-to-top {
+  background-color: var(--button-bg);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  color: var(--text-color);
+}
+
+:root.dark .theme-toggle:hover,
+:root.dark .back-to-top:hover {
+  background-color: var(--button-hover);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* 深色模式下的链接样式 */
+:root.dark a {
+  color: var(--link-color);
+}
+
+:root.dark a:hover {
+  color: var(--link-hover);
+}
+
+/* 深色模式时间线年份 */
+:root.dark .timeline-item--year {
+  color: var(--text-color);
 }
 </style>
