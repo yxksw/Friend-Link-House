@@ -5,9 +5,9 @@ const fs = require("fs");
 const Parser = require("rss-parser");
 const parser = new Parser({ timeout: 12000 });
 
-// 解析 README 中的表格
+// 解析 README 中的表格（支持最后一行没有换行符）
 const pattern =
-  /\| *([^\|]*) *\| *(http[^\|]*) *\| *([^\|\n]*) *\| *([^\| \n]*) *\| *([^\| \n]*) *\| *([^\| \n]*) *\|\n/g;
+  /\| *([^\|]*) *\| *(http[^\|]*) *\| *([^\|\n]*) *\| *([^\| \n]*) *\| *([^\| \n]*) *\| *([^\| \n]*) *\|/g;
 const readmeMdContent = fs.readFileSync("./README.md", { encoding: "utf-8" });
 
 const blogs = [];
@@ -121,8 +121,7 @@ async function generateSyncScript() {
 
   // 去重并排序（根据 link 去重，更准确）
   const uniquePosts = posts.filter(
-    (arr, index, self) =>
-      index === self.findIndex((t) => t.link === arr.link),
+    (arr, index, self) => index === self.findIndex((t) => t.link === arr.link),
   );
   uniquePosts.sort((a, b) => new Date(b.pub_date) - new Date(a.pub_date));
 
