@@ -96,6 +96,10 @@ jobs:
                   # 安装 Wrangler
                   npm install -g wrangler
 
+                  # 清理旧数据（避免重复）
+                  echo "Cleaning old data..."
+                  timeout 60 wrangler d1 execute friend-link-house-db --command="DELETE FROM posts; DELETE FROM blogs;" --remote --yes || echo "Clean completed or timed out"
+
                   # 同步博客列表（使用 --remote 访问远程数据库）
                   if [ -f "d1-init.sql" ]; then
                     echo "Syncing blogs..."
