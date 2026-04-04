@@ -38,10 +38,9 @@ const opmlXmlContentOp =
   "</title>\n  </head>\n  <body>\n\n";
 const opmlXmlContentEd = "\n  </body>\n</opml>";
 
-// 解析 README 中的表格，转为 JSON
+// 解析 README 中的表格，转为 JSON（支持最后一行没有换行符）
 const pattern =
-  /\| *([^\|]*) *\| *(http[^\|]*) *\| *([^\|\n]*) *\| *([^\| \n]*) *\| *([^\| \n]*) *\| *([^\| \n]*) *\|\n/g;
-  // /\| *([^\|]*) *\| *(http[^\|]*) *\| *([^\|\n]*) *\| *([^\| \n]*) *\| *([^\| \n]*) *\| *([^\| \n]*) *\|/g;
+  /\| *([^\|]*) *\| *(http[^\|]*) *\| *([^\|\n]*) *\| *([^\| \n]*) *\| *([^\| \n]*) *\| *([^\| \n]*) *\|/g;
 const readmeMdContent = fs.readFileSync(readmeMdPath, { encoding: "utf-8" });
 
 const metaJson = [];
