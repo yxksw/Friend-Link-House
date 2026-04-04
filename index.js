@@ -8,19 +8,19 @@ const RSS = require("rss");
 // const HttpsProxyAgent = require("https-proxy-agent");
 
 // TODO: 需要重点关注和修改的配置
-const opmlXmlContentTitle = "idealclover Blogroll";
+const opmlXmlContentTitle = "yxksw links";
 const maxDataJsonItemsNumberForWeb = 120; // 保存前 120 项
 const maxDataJsonItemsNumberForRSS = 40; // 对RSS保存前 40 项
 var feed = new RSS({
-  title: "idealclover 友链屋",
-  description: "翠翠和他的朋友们的blog，不代表翠翠本人观点",
-  feed_url: "https://blogroll.icl.moe/rss.xml",
-  site_url: "https://blogroll.icl.moe/",
-  image_url: "https://blogroll.icl.moe/assets/logo.png",
-  docs: "https://blogroll.icl.moe",
-  managingEditor: "idealclover",
-  webMaster: "idealclover",
-  copyright: "2022 idealclover",
+  title: "YXKの友链墙",
+  description: "异飨客和他的朋友们的blog，不代表我本人观点",
+  feed_url: "https://blog.050815.xyz/rss.xml",
+  site_url: "https://blog.050815.xyz/",
+  image_url: "https://hub.314926.xyz/assets/yxksw.jpg",
+  docs: "https://blog.050815.xyz",
+  managingEditor: "yxksw",
+  webMaster: "yxksw",
+  copyright: "2026 YXKの友链墙",
   language: "cn",
   ttl: "60",
 });

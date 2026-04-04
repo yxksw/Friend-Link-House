@@ -74,13 +74,13 @@ onMounted(async () => {
   <header id="header">
     <div id="header-inner">
       <span id="logo-left">
-        <img id="logo" src="./assets/logo.png" alt="Logo" />
+        <img id="logo" src="./assets/yxksw.jpg" alt="Logo" />
         <span id="logo-text">{{ title }}</span>
       </span>
       <a
         id="logo-right"
         target="_blank"
-        href="https://github.com/idealclover/blogroll"
+        href="https://github.com/yxksw/Friend-Link-House"
       >
         <img id="logo-github" src="./assets/github.png" alt="Logo" />
         <span id="logo-text">GitHub</span>
