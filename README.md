@@ -10,3 +10,4 @@ PR添加友链。
 | 清羽飞扬 | https://blog.liushen.fun/ | 柳影曳曳，清酒孤灯，扬笔撒墨，心境如霜 | https://blog.liushen.fun/info/avatar.ico | https://blog.liushen.fun/atom.xml | net |
 | 纸鹿摸鱼处 | https://blog.zhilu.site/ | 纸鹿至麓不知路，支炉制露不止漉 | https://www.zhilu.site/api/avatar.png | https://blog.zhilu.site/atom.xml | net |
 | CWorld Site | https://cworld0.com/ | 求知若愚，虚怀若谷 | https://gravatar.loli.net/avatar/1ffe42aa45a6b1444a786b1f32dfa8aa?s=200 | https://cworld0.com/rss.xml | net |
+| 二叉树树 | https://2x.nz/ | Protect What You Love | https://q2.qlogo.cn/headimg_dl?dst_uin=2726730791&spec=0 | https://2x.nz/rss.xml | net |
