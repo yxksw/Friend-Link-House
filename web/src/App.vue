@@ -40,6 +40,16 @@ const updateSiteRunningTime = () => {
   siteRunningTime.value = getSiteRunningTime();
 };
 
+// 随机跳转文章
+const openRandomPost = () => {
+  if (posts.value.length === 0) return;
+  const randomIndex = Math.floor(Math.random() * posts.value.length);
+  const randomPost = posts.value[randomIndex];
+  if (randomPost.link) {
+    window.open(randomPost.link, '_blank');
+  }
+};
+
 // 回到顶部功能
 const scrollToTop = () => {
   window.scrollTo({
@@ -171,6 +181,17 @@ onUnmounted(() => {
         <img id="logo" src="./assets/yxksw.jpg" alt="Logo" />
         <span id="logo-text">{{ title }}</span>
       </span>
+      <button
+        id="random-post-btn"
+        @click="openRandomPost"
+        title="随机文章"
+        :disabled="posts.length === 0"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path fill="currentColor" fill-rule="evenodd" d="M4 17a1 1 0 0 1 0-2h2l3-3l-3-3H4a1.001 1.001 0 0 1 0-2h3l4 4l4-4h2V5l4 3.001L17 11V9h-1l-3 3l3 3h1v-2l4 3l-4 3v-2h-2l-4-4l-4 4z"/>
+        </svg>
+        <span id="logo-text">随机文章</span>
+      </button>
       <a
         id="logo-right"
         target="_blank"
@@ -604,6 +625,44 @@ export default {
 /* 深色模式时间线年份 */
 :root.dark .timeline-item--year {
   color: var(--text-color);
+}
+
+/* 随机文章按钮样式 */
+#random-post-btn {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  margin-right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #444950;
+  font-size: large;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+#random-post-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+#random-post-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#random-post-btn svg {
+  margin-right: 5px;
+}
+
+/* 深色模式随机文章按钮 */
+:root.dark #random-post-btn {
+  color: #e0e0e0;
+}
+
+:root.dark #random-post-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* ==================== 底部组件样式 ==================== */
